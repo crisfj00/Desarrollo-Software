@@ -7,15 +7,15 @@ module MeetNMatch
 		attr_accessor :tipoSuelo, :tipoEncuentro
 		
 		
-		def clone()
-			obj= super()
-			#obj.tipoSuelo= @tipoSuelo
-			#obj.tipoEncuentro= "futbol"
+		def clone()     
+      obj= EncuentroFutbol.new(@localizacion,  @tipoSuelo)
+			obj.equipoLocal= @equipoLocal.clone
+			obj.equipoVisitante= @equipoVisitante.clone
 			return obj
 		end
 
 		def comenzarEncuentro
-			puts "Va a comenzar un encuentro de " + @tipoEncuntro + "\n- El tipo de suelo del campo es: " + @tipoSuelo
+			puts "Va a comenzar un encuentro de " + @tipoEncuentro + " en " + @localizacion + "\n- El tipo de suelo del campo es: " + @tipoSuelo
 
 			@equipoLocal.each do |jug|
 				jug.jugar(@minutos)
@@ -24,6 +24,18 @@ module MeetNMatch
 			@equipoVisitante.each do |jug|
 				jug.jugar(@minutos)
 			end
+      
+      sleep(@minutos/10)
+      
+			@equipoLocal.each do |jug|
+				jug.finalizar
+			  end
+
+			@equipoVisitante.each do |jug|
+				jug.finalizar
+			end
+
+			puts "Finaliza encuentro de " + @tipoEncuentro
 
 		end
 

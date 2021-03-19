@@ -16,11 +16,14 @@ module MeetNMatch
 			@minutos=min
 		end
 
+    def finalizar()
+    
+    end
+
 		
 		def clone()
 		end
 
-		#abstract_method :clone
 
 	end
 end

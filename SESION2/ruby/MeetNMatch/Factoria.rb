@@ -9,7 +9,6 @@ module MeetNMatch
 		end
 
 
-		#abstract_method :crearPartido
 
 	end
 end

@@ -16,16 +16,7 @@ module MeetNMatch
 		end
 
 
-		def copia(eL, eV, loc, min)
-			obj= Encuentro.new(loc, min)
-			obj.equipoLocal= eL.clone
-			obj.equipoVisitante= eV.clone
-			return obj
-		end
-
-		
 		def clone()
-			return copia(@equipoLocal, @equipoVisitante, @localizacion, @minutos)
 		end
 
 		
@@ -42,7 +33,6 @@ module MeetNMatch
 
 		end
 
-		#abstract_method :comenzarEncuentro
 
 	end
 end

@@ -6,15 +6,15 @@ module MeetNMatch
 
 		attr_accessor :alturaRed, :tipoEncuentro
 
-		def clone()
-			obj= super()
-			#obj.alturaRed= @alturaRed
-			#obj.tipoEncuentro= "tenis"
-			return obj
-		end
+		def clone()    
+      obj= EncuentroTenis.new(1)
+			obj.equipoLocal= @equipoLocal.clone
+			obj.equipoVisitante= @equipoVisitante.clone
+      return obj
+     end
 
 		def comenzarEncuentro
-			puts "Va a comenzar un encuentro de " + @tipoEncuntro + "\n- La altura de la red es: " + @alturaRed 
+			puts "Va a comenzar un encuentro de " + @tipoEncuentro + " en " + @localizacion +"\n- La altura de la red es: " + @alturaRed.to_s + "m"
 			
 			@equipoLocal.each do |jug|
 				jug.jugar(@minutos)
@@ -23,6 +23,18 @@ module MeetNMatch
 			@equipoVisitante.each do |jug|
 				jug.jugar(@minutos)
 			end
+      
+      sleep(@minutos/10)
+      
+			@equipoLocal.each do |jug|
+				jug.finalizar
+			  end
+
+			@equipoVisitante.each do |jug|
+				jug.finalizar
+			end
+
+			puts "Finaliza encuentro de " + @tipoEncuentro
 
 		end
 

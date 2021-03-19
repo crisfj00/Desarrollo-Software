@@ -19,8 +19,10 @@ module MeetNMatch
 		def jugar(min)
 			super(min)
 			puts "Jugador de Tenis " + @nombre + " sale a la pista\n"
-			sleep(min/5)
-			puts "Jugador de Tenis " + @nombre + " termina de jugar\n"
 		end
+    
+    def finalizar()
+			puts "Jugador de Tenis " + @nombre + " termina de jugar\n"
+    end
 	end
 end
