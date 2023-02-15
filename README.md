@@ -1,2 +1,4 @@
 # DS-PRACTICAS
-Prácticas DS UGR, con Ángel Gómez
+Prácticas Desarrollo Software (Universidad de Granada)
+
+Por Cristian Fernández y Ángel Gómez
